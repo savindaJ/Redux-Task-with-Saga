@@ -1,4 +1,3 @@
-// src/sagas/dataSaga.js
 import { call, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import { fetchDataRequest, fetchDataSuccess, fetchDataFailure } from '../features/dataSlice';

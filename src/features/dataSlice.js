@@ -1,12 +1,17 @@
-// src/features/dataSlice.js
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const dataSlice = createSlice({
-  name: 'data',
+  name: "data",
   initialState: {
     items: [],
     loading: false,
     error: null,
+    sampleData: [
+      { id: 1, title: "First" },
+      { id: 2, title: "Second" },
+      { id: 3, title: "Third" },
+    ],
+    count: 0,
   },
   reducers: {
     fetchDataRequest: (state) => {
@@ -20,8 +25,20 @@ const dataSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    increment: (state) => {
+      state.count += 1;
+    },
+    decrement: (state) => {
+      state.count -= 1;
+    },
   },
 });
 
-export const { fetchDataRequest, fetchDataSuccess, fetchDataFailure } = dataSlice.actions;
+export const {
+  fetchDataRequest,
+  fetchDataSuccess,
+  fetchDataFailure,
+  increment,
+  decrement,
+} = dataSlice.actions;
 export default dataSlice.reducer;
